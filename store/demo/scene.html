@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>demo</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; height: 100vh; background: #e9edf3; font: 14px system-ui, sans-serif; color: #3b4252; overflow: hidden; }
+.side { position: absolute; left: 0; top: 0; bottom: 0; width: 220px; background: #dfe5ee; padding: 24px 16px; }
+.side i { display: block; height: 14px; border-radius: 7px; background: #c4cddb; margin: 0 0 18px; }
+.list { position: absolute; left: 220px; right: 0; top: 0; bottom: 0; padding: 24px 32px; }
+.list i { display: block; height: 52px; border-radius: 8px; background: #f7f9fc; margin: 0 0 10px; border: 1px solid #d6dde8; }
+.compose { position: absolute; right: 40px; bottom: 0; width: 460px; background: #fff; border-radius: 10px 10px 0 0; box-shadow: 0 8px 30px rgba(30,40,60,.3); overflow: hidden; }
+.compose header { background: #404859; color: #fff; padding: 10px 14px; font-weight: 600; }
+.compose .f { padding: 10px 14px; border-bottom: 1px solid #e3e8ef; color: #8a94a6; }
+.compose .body { height: 170px; padding: 14px; }
+.compose .body b { display: block; height: 10px; border-radius: 5px; background: #e3e8ef; margin: 0 0 12px; }
+.compose footer { padding: 12px 14px; }
+#send { display: inline-block; background: #3b6fe0; color: #fff; padding: 10px 26px; border-radius: 18px; font-weight: 600; }
+</style></head>
+<body>
+<div class="side"><i style="width:70%"></i><i style="width:55%"></i><i style="width:62%"></i><i style="width:48%"></i><i style="width:58%"></i></div>
+<div class="list"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="compose">
+  <header>New message</header>
+  <div class="f">To</div><div class="f">Subject</div>
+  <div class="body"><b style="width:90%"></b><b style="width:75%"></b><b style="width:82%"></b><b style="width:40%"></b></div>
+  <footer><span id="send">Send</span></footer>
+</div>
+<script src="demo.js"></script>
+</body></html>
