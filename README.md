@@ -1,8 +1,8 @@
 # Gmail Send Celebration (MVP)
 
+Arcade fireworks, sound and score whenever a Gmail message is sent. No data collected, no network calls.
 
 **[Live demo](https://haticedalkiran.github.io/send-celebration/store/demo/live.html)**: click Send on a fake mail page and see the real effect. Add `?theme=synthwave`, `gameboy` or `casino` to try other themes.
-Arcade fireworks, sound and score whenever a Gmail message is sent. No data collected, no network calls.
 
 ## Setup
 1. `npm install && npm run build`
