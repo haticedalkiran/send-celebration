@@ -53,7 +53,7 @@ Show a short celebration (visual effect, sound and score) when the user sends an
 ## Privacy practices tab answers
 - Data collected: none (leave every data-type box unchecked)
 - Certify: data not sold to third parties; not used or transferred for purposes unrelated to the single purpose; not used for creditworthiness or lending
-- Privacy policy URL: host store/privacy-policy.md publicly (GitHub Pages, Gist, Notion) and paste the link
+- Privacy policy URL: https://haticedalkiran.github.io/send-celebration/privacy.html (hosted on GitHub Pages from privacy.html; keep it in sync with store/privacy-policy.md)
 
 ## Assets to prepare
 - Icon 128x128: icons/icon128.png (done)

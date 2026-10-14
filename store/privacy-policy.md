@@ -32,6 +32,6 @@ The extension is not directed at children and collects no data from anyone.
 If this policy changes, the date above will be updated and the changes will be described in the extension's release notes.
 
 ## Contact
-[YOUR NAME / CONTACT EMAIL]
+Hatice Dalkiran. Questions or requests: [open an issue](https://github.com/haticedalkiran/send-celebration/issues).
 
 Send Celebration for Gmail is an independent project and is not affiliated with, endorsed by or sponsored by Google. Gmail is a trademark of Google LLC.
