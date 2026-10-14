@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Live demo</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; height: 100vh; background: #f6f8fc; font: 14px system-ui, sans-serif; color: #3b4252; overflow: hidden; }
+.top { height: 56px; display: flex; align-items: center; gap: 16px; padding: 0 20px; }
+.logo { font-size: 20px; font-weight: 600; color: #5f6368; width: 180px; }
+.search { flex: 1; max-width: 640px; height: 40px; border-radius: 20px; background: #e9eef6; padding: 10px 18px; color: #5f6368; }
+.side { position: absolute; top: 56px; left: 0; bottom: 0; width: 220px; padding: 8px 12px; }
+.new { background: #c2e7ff; color: #001d35; border-radius: 16px; padding: 16px 24px; font-weight: 600; display: inline-block; margin-bottom: 12px; cursor: pointer; }
+.side .item { padding: 6px 16px; border-radius: 0 16px 16px 0; color: #3b4252; }
+.side .item.on { background: #d3e3fd; font-weight: 600; }
+.list { position: absolute; top: 56px; left: 220px; right: 16px; bottom: 0; background: #fff; border-radius: 16px 16px 0 0; overflow: hidden; }
+.row { display: flex; gap: 16px; align-items: center; height: 40px; padding: 0 16px; border-bottom: 1px solid #edf0f5; white-space: nowrap; }
+.row b { width: 190px; flex: none; overflow: hidden; text-overflow: ellipsis; }
+.row span { flex: 1; overflow: hidden; text-overflow: ellipsis; color: #5f6368; }
+.row em { font-style: normal; color: #5f6368; font-size: 12px; }
+.row.read b { font-weight: 400; }
+.compose { position: absolute; right: 40px; bottom: 0; width: 520px; background: #fff; border-radius: 10px 10px 0 0; box-shadow: 0 8px 30px rgba(30,40,60,.3); overflow: hidden; }
+.compose header { background: #404859; color: #fff; padding: 10px 14px; font-weight: 600; }
+.compose .f { padding: 10px 14px; border-bottom: 1px solid #e3e8ef; color: #8a94a6; }
+.compose .f input { border: 0; outline: 0; font: inherit; color: #3b4252; width: 85%; }
+.compose .body { height: 190px; padding: 14px; }
+.compose .body textarea { width: 100%; height: 100%; border: 0; outline: 0; resize: none; font: inherit; color: #3b4252; }
+.compose footer { padding: 12px 14px; }
+.aoO { display: inline-block; background: #0b57d0; color: #fff; padding: 10px 26px; border-radius: 18px; font-weight: 600; cursor: pointer; user-select: none; }
+.hint { position: fixed; left: 236px; bottom: 14px; color: #5f6368; font-size: 12px; }
+</style></head>
+<body>
+<div class="top"><div class="logo">✉ Mail</div><div class="search">Search mail</div></div>
+<div class="side">
+  <div class="new" id="new">✎ Compose</div>
+  <div class="item on">Inbox</div><div class="item">Starred</div><div class="item">Sent</div><div class="item">Drafts</div>
+</div>
+<div class="list">
+  <div class="row"><b>Ada Lovelace</b><span>Notes on the analytical engine, draft 2</span><em>9:41</em></div>
+  <div class="row"><b>Design team</b><span>Weekly sync moved to Thursday</span><em>9:12</em></div>
+  <div class="row"><b>Grace Hopper</b><span>Re: compiler bug report</span><em>8:55</em></div>
+  <div class="row read"><b>Newsletter</b><span>Ten tiny habits for a calmer inbox</span><em>Yesterday</em></div>
+  <div class="row read"><b>Alan Turing</b><span>Lunch on Friday?</span><em>Yesterday</em></div>
+  <div class="row read"><b>Hedy Lamarr</b><span>Frequency hopping slides attached</span><em>Mon</em></div>
+  <div class="row read"><b>Billing</b><span>Your receipt for October</span><em>Mon</em></div>
+  <div class="row read"><b>Margaret Hamilton</b><span>Launch checklist, final</span><em>Sun</em></div>
+  <div class="row read"><b>Linus</b><span>Patch review</span><em>Sat</em></div>
+</div>
+<div class="compose" id="compose">
+  <header>New message</header>
+  <div class="f">To <input value="team@example.com"></div>
+  <div class="f">Subject <input value="Weekly update"></div>
+  <div class="body"><textarea>Hi all, here is the weekly update.</textarea></div>
+  <footer><span class="aoO" role="button">Send</span></footer>
+</div>
+<div class="hint">Demo: click Send (or Ctrl/Cmd+Enter) to celebrate. Compose reopens in a moment. Theme: ?theme=synthwave|gameboy|casino|arcade</div>
+<script>
+  // Mimic Gmail: a successful send closes the compose, then reopen it for the next take.
+  const compose = document.getElementById('compose');
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.aoO')) setTimeout(() => { compose.style.display = 'none'; setTimeout(() => (compose.style.display = ''), 3500); }, 200);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) setTimeout(() => { compose.style.display = 'none'; setTimeout(() => (compose.style.display = ''), 3500); }, 200);
+  });
+  document.getElementById('new').onclick = () => (compose.style.display = '');
+  const t = new URLSearchParams(location.search).get('theme');
+  if (t) localStorage.setItem('sync:theme', JSON.stringify(t));
+</script>
+<script src="live.js"></script>
+</body></html>

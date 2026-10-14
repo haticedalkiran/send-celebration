@@ -1,6 +1,6 @@
 (() => {
   // store/demo/shim.js
-  globalThis.chrome = { runtime: { getURL: (p) => "/" + p } };
+  globalThis.chrome = { runtime: { getURL: (p) => new URL("../../" + p, location.href).href } };
 
   // node_modules/canvas-confetti/dist/confetti.module.mjs
   var module = {};
