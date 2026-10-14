@@ -1,4 +1,4 @@
-# Gmail Send Celebration (MVP)
+# Send Celebration for Gmail
 
 Arcade fireworks, sound and score whenever a Gmail message is sent. No data collected, no network calls.
 
@@ -13,7 +13,7 @@ No third-party SDK, no network calls. The only permission is `storage`; the cont
 Send detection lives in `src/detector.js`: it watches Gmail's Send button (click or Ctrl/Cmd+Enter) and celebrates once the compose closes.
 Debug: in the Gmail tab console run `localStorage.setItem('gscDebug','1')`, reload, and watch `[send-celebration]` logs.
 
-## MVP test checklist (BR-1..BR-5)
+## Test checklist
 - Send button, Ctrl+Enter → effect fires
 - Click Undo right after sending → no effect
 - Failed send (offline) → no effect
